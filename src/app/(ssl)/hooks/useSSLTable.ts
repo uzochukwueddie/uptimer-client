@@ -35,7 +35,7 @@ export const useSSLTable = (): IUseSSLTable => {
         query: GET_USER_SSL_MONITORS,
         variables: { userId: `${user?.id}` },
         data: {
-          getUserMonitors: {
+          getUserSSLMonitors: {
             __typename: 'SSLMonitorResponse',
             sslMonitors,
           },
@@ -91,8 +91,8 @@ export const useSSLTable = (): IUseSSLTable => {
         if (response) {
           await deleteSSLMonitor({
             variables: {
-              monitorId: `${monitor.id}`,
-              userId: `${monitor.userId}`,
+              monitorId: monitor.id,
+              userId: monitor.userId,
             },
           });
         }
